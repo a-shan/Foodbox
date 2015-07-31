@@ -1,6 +1,6 @@
-.key
+.key.py
 .bs4/*
 .httplib2/*
 .oauth2/*
-.notes
+.notes.txt
 .unused/*
