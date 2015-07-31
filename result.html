@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang = "en">
+<head>
+	<meta charset = "utf-8" />
+	<title>Food Box </title>
+	<link rel = "stylesheet" href = "../public/foodbox.css">
+	<link href='http://fonts.googleapis.com/css?family=Hind|Quattrocento+Sans|Kaushan+Script|Lato|Raleway|Indie+Flower' rel='stylesheet' type='text/css'>
+	
+	<link rel="icon"
+	type="image/png"
+	href="../public/icon.png"/>
+</head>
+<body>
+	<div id="separation">
+	<header>
+		<h1><a id="name" href="/">Food Box</a><h1>
+	</header>
+	</div>
+	<div id="background">
+	<div id="separation_2">
+			<img id="awning" src="../public/awning.png"/> 
+			<div id="arrow-right">
+				<form action="/next" method="post">
+      				<span><input id="next" type="submit" value="Next" alt="Next"/></span>
+    			</form>
+    		</div>
+			<div id="arrow-left">
+				<form action ="/prev" method="post">
+					<span><input id="prev" type="submit" value ="Previous" alt="Previous"/></span>
+				</form>
+			</div>
+	<section id="main_section">
+		<div id="title"><b>{{restaurant}}</b></div>
+		<br><img src="{{stars}}"/>
+		<br>Genre: {{genre}}
+		<div id="imgdiv"><img src="{{img}}" id="img" height=300 width=400/></div>
+		<div id="loc">Location: {{address}}, {{city}}, {{state}}</div>
+		<br><a href="{{url}}" target="_blank" style="text-decoration:none;">Yelp</a>
+	</section>
+	
+	<form id="buttonSpan" action ="/results" method ="post">
+		<input class="btn" id="button" value="More Restaurants!"type="submit"/>
+	</form>
+
+	</div>
+	</div>
+
+	<div id="lastpart"></div>
+			
+		
+	<footer>
+	©Food Box 2015. All Rights Reserved.
+	</footer>
+
+</body>
+</html>

@@ -1,0 +1,24 @@
+*{
+margin:0px;
+padding:0px;
+}
+header{
+display:block;
+text-align:center;
+font: bold 35px/1.5 Lato, "MANIFESTO", MANIFESTO, Arial, sans-serif;
+border:10px solid red;
+margin:0 auto;
+width:500px;
+margin-top:.5%;
+background:#FFF4F4;
+}
+#main_section{
+display:block;
+border:5px solid silver;
+margin-left: auto;
+margin-right:auto;
+margin-top: 2%;
+width:800px;
+height:400px;
+
+}

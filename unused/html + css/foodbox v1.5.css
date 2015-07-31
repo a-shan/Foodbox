@@ -1,0 +1,50 @@
+*{
+margin:0px;
+padding:0px;
+}
+
+@font-face {
+	font-family:"MANIFESTO";
+	src: url('MANIFESTO.ttf') format(truetype);
+}
+
+header{
+display:block;
+text-align:center;
+font: bold 35px/1.5 Lato, "MANIFESTO", MANIFESTO, Arial, sans-serif;
+border:10px solid #DB7093;
+margin:0 auto;
+width:500px;
+background:#FFF4F4;
+margin-top:.5%;
+}
+#separation{
+padding-bottom: 22.5px;
+border:1px solid #E0FFFF;
+background: #E0FFFF;
+}
+#separation_2{
+border:1px;
+height: 675px;
+
+
+}
+#main_section{
+display:block;
+border:2px solid #87CEFA;
+margin-left: auto;
+margin-right:auto;
+margin-top: 5%;
+width:900px;
+height:500px;
+
+
+}
+footer{
+position:relative;
+  bottom:0;
+  width:100%;  
+  text-align:center;
+  border-top: 1px solid #87CEFA;
+  font: 15px/1.5 Lato, "MANIFESTO", MANIFESTO, Arial, sans-serif;
+}

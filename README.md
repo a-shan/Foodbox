@@ -1,8 +1,8 @@
 Foodbox
 ==============
 
-Foodbox is an application built to recommend local restaurants to a user based on inputs of
-location and terms.
+Foodbox is an application built to recommend local eateries to users based on inputted location
+and terms.
 
 Example inputs:
 * Restaurants near San Francisco, CA

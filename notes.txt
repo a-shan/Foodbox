@@ -1,0 +1,29 @@
+Name
+Rating
+Picture
+Genre
+Open/Closed
+Location/Directions
+Yelp Link
+
+transform URL method:
+str = 'http://s3-media2.fl.yelpcdn.com/bphoto/SR1yKwpd-VTk1ECh_oGnsw/ms.jpg'
+temp = ""
+temp = url[:url.find('/ms')]+'/o'+url[url.find('/ms')+3:]
+str = temp
+
+to-do:
+add canopy
+scrape images
+scrape open/closed
+find user location
+multidimensional lists for storing business data
+improve offset/"Show Me More" method
+
+Legal:
+Copyright/License
+
+Yelp logo ("Wherever you display information from the API, you’ll also need to display our logo")
+Provide link to Yelp ("Fully attribute your use of our content by linking directly to the applicable Yelp pages.")
+Rating & Image of Stars Rating ("You always need to display our aggregate star rating graphics and the number of reviews")
+	https://www.yelp.com/developers/display_requirements
