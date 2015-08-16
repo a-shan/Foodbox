@@ -207,6 +207,24 @@ def getData(location):
         businessData[businessNames[i]] = get_business(businessNames[i])
     return (businessData, businessNames)
 
+def query(term, location):
+    nums = createIndex()
+    data = {}
+    if not location:
+        data = search(term, DEFAULT_LOCATION)
+    elif not term:
+        data = search(DEFAULT_TERM, location)
+    else:
+        data = search(term, location)
+    businesses = data.get('businesses')
+    businessNames = []
+    for i in range(len(nums)):
+        businessNames.append(businesses[nums[i]]['id'])
+    businessData={}
+    for i in range(len(nums)):
+        businessData[businessNames[i]] = get_business(businessNames[i])
+    return (businessData, businessNames)
+
 def main():
     parser = argparse.ArgumentParser()
 

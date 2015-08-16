@@ -4,13 +4,19 @@
 	<meta charset = "utf-8" />
 	<title>Food Box </title>
 	<link rel = "stylesheet" href = "../public/foodbox.css">
-	<link href='http://fonts.googleapis.com/css?family=Hind|Quattrocento+Sans|Kaushan+Script|Lato|Raleway|Indie+Flower' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Hind|Quattrocento+Sans|Kaushan+Script|Lato|Raleway|Indie+Flower|Cabin+Condensed' rel='stylesheet' type='text/css'>
 	
 	<link rel="icon"
 	type="image/png"
 	href="../public/icon.png"/>
 </head>
 <body>
+	<div id="navbar">
+	<ul>
+  		<li><a class="navlink" id="navAbout" href="/contact">ABOUT</a></li>
+  		<li><a class="navlink" id="navContact" href="/contact">CONTACT</a></li>
+	</ul>
+	</div>
 	<div id="separation">
 	<header>
 		<h1><a id="name" href="/">Food Box</a><h1>
@@ -31,11 +37,11 @@
 			</div>
 	<section id="main_section">
 		<div id="title"><b>{{restaurant}}</b></div>
-		<br><img src="{{stars}}"/>
+		<br><img id="rating" src="{{stars}}"/>
 		<br>Genre: {{genre}}
 		<div id="imgdiv"><img src="{{img}}" id="img" height=300 width=400/></div>
 		<div id="loc">Location: {{address}}, {{city}}, {{state}}</div>
-		<br><a href="{{url}}" target="_blank" style="text-decoration:none;">Yelp</a>
+		<br><a id="yelp" href="{{url}}" target="_blank" style="text-decoration:none;">Yelp</a>
 	</section>
 	
 	<form id="buttonSpan" action ="/results" method ="post">

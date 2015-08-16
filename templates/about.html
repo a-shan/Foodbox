@@ -2,9 +2,6 @@
 <html lang = "en">
 <head>
 	<meta charset = "utf-8" />
-	<meta name="author" content="Alex Shan, Jonathan Yao">
-		<meta name="title" content="Food Box">
-	<meta name="description" content="Web application built to recommend nearby restaurants">
 	<title>Food Box </title>
 	<link rel = "stylesheet" href = "../public/foodbox.css">  
 	<link href='http://fonts.googleapis.com/css?family=Hind|Quattrocento+Sans|Kaushan+Script|Lato|Raleway|Cabin+Condensed' rel='stylesheet' type='text/css'>
@@ -13,7 +10,7 @@
 <body>
 	<div id="navbar">
 	<ul>
-  		<li><a class="navlink" id="navAbout" href="/about">ABOUT</a></li>
+  		<li>ABOUT</li>
   		<li><a class="navlink" id="navContact" href="/contact">CONTACT</a></li>
 	</ul>
 	</div>
@@ -27,28 +24,23 @@
 		
 			<img id="awning" src="../public/awning.png"/>
 	<section id="home_section">
-		<div id="text">
-			<h3><b>Welcome to Food Box!</b></h3>
-			<p id ="intro">Food Box is designed to help you find your next meal.
-			</br>Simply enter your location below and discover eateries nearby!
-			</p>
+		<div id="aboutText">
+			<h3><b>About Food Box</b></h3>
 		</div>
-		<span id="locationInput">
-			</br>Location
-      		<form action="/result" method="post">
-      			<!--
-      			<input type="text" id="textarea" name="termInput" placeholder="Restaurants"/>
-      			-->
-      			<input type="text" id="textarea" name="locInput" placeholder="San Francisco, CA"/>
-      			<div><input class="btn" id="button" type="submit" value="BEGIN" /></div>
-      		</span>
-    		</form>
+		<p id="paragraph">
+			Food Box is a project made by two amateur developers to explore code and web development.
+			</br>The concept was inspired by our own difficulties in choosing where to dine.
+			</br></br>
+		We hope you enjoy using our application, and please let us know about any
+	</br>comments or suggestions in the "CONTACT" section!
+		</p>
 	</section>
 	</div>
 	</div>
 
 	<div id="lastpart">
 	</div>
+
 		
 	<footer>
 	©Food Box 2015. All Rights Reserved.

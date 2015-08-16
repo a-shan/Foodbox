@@ -3,6 +3,11 @@ margin:0px;
 padding:0px;
 }
 
+body{
+	height:100%;
+	background-color:#FFF4F4;
+}
+
 #name{
 	text-decoration:none;
 }
@@ -11,6 +16,42 @@ padding:0px;
 }
 #name:visited{
 	color:black;
+}
+
+#navbar{
+	width:100%;
+	background: #E0FFFF;
+}
+
+ul{
+	text-align: right;
+	padding-right: 100px;
+}
+
+li{
+	display: inline;
+	margin: 0 25px 0 25px;
+	font-family: "Cabin Condensed";
+	font-style: bold;
+	font-size: 24px;
+}
+
+.navlink{
+	text-decoration: none;
+	opacity:0.3;
+}
+.navlink:link{
+	color:black;
+}
+.navlink:visited{
+	color:black;
+}
+
+#navAbout:hover{
+	opacity: 1;
+}
+#navContact:hover{
+	opacity: 1;
 }
 
 header{
@@ -40,25 +81,36 @@ background: #E0FFFF;
 border:1px;
 height:100%;
 }
+#background{
+background-color:#FFF4F4;
+height:100%;
+}
 
 #home_section{
-background:#ffffff;
+background-color:#ffffff;
 display:block;
-padding-top:1%;
 text-align:center;
 font: 15px "Lato", Helvetica, Arial, sans-serif;
-font-weight:425;
 border:2px solid #87CEFA;
 margin-left: auto;
 margin-right:auto;
 width:900px;
-height:500px;
-margin-top:-1%;
+height:525px;
+margin-top:-2%;
+}
+
+#text{
+	padding-top:12%;
+}
+
+#aboutText{
+	padding-top:6%;
 }
 
 #awning{
 	/*
 margin-top:1%;
+background-color:#FFF4F4;
 */
 display:block;
 margin-left: auto;
@@ -67,16 +119,22 @@ margin-right: auto;
 
 h3{
 	padding-top:1%;
-	font: 18px "Raleway", sans-serif;
+	font: 24px "Raleway", sans-serif;
 }
 
 #intro{
 	padding-top:3%;
+	font-size:17px;
+}
+
+#paragraph{
+	padding-top:12%;
+	font-size:17px;
 }
 
 #locationInput{
 	display:block;
-	margin-top:20%;
+	margin-top:8%;
 }
 
 #textarea{
@@ -86,31 +144,35 @@ h3{
 	height: 25px;
 }
 
-#background{
-background-color: #FFF4F4;
+#contact{
+	padding-top:10%;
+	font-size: 20px;
 }
+#contactText{
+	font-size:16px;
+}
+
 
 #main_section{
 background:#ffffff;
 display:block;
-padding-top:1%;
 text-align:center;
 font: 15px "Lato", Helvetica, Arial, sans-serif;
-font-weight:375;
 border:2px solid #87CEFA;
 margin-left: auto;
 margin-right:auto;
 width:900px;
-height:500px;
-margin-top:-1%;
+height:525px;
+margin-top:-2%;
 }
 
 #title{
+margin-top:4%;
 font: 32px "Indie Flower", sans-serif;
 }
 
-#loc{
-font-size: 17px;
+#rating{
+	margin-top:-5%;
 }
 
 #imgdiv{
@@ -123,6 +185,10 @@ font-size: 17px;
     -webkit-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
     -moz-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
 	/*border-color: #F5F4EF;*/
+}
+
+#loc{
+font-size: 17px;
 }
 
 #next{
@@ -210,17 +276,134 @@ font-size: 17px;
 	top:2px;
     padding: 4px 35px 4px 35px;
 }
-
+/*
 #lastpart{
 	background-color:#FFF4F4;
-	height:18.7vh;
 }
 
+#lastpart2{
+	background-color:#FFF4F4;
+	height:110px;
+}
+*/
+
 footer{
-	position:absolute;
-  bottom:0;
-  width:100%;  
+  position:fixed;
+  bottom: 0px;
+  width:100%;
+  background:#ffffff;
   text-align:center;
   border-top: 1px solid #87CEFA;
   font: 15px/1.5 'Lato', sans-serif;
+}
+
+@media print, screen and (max-width: 960px) {
+	header{
+		font-size:30px;
+		width: 400px;
+	}
+
+	ul{
+		padding-right: 0px;
+	}
+
+	li{
+		margin:0 10px 0 0;
+		font-size: 20px;
+	}
+
+	#home_section{
+		width:450px;
+		height:400px;
+  	}
+  	#main_section{
+  		width:450px;
+  	}
+  	h3{
+		font-size: 20px;
+	}
+
+	#intro{
+		padding-top:3%;
+		font-size:16px;
+	}
+
+  	#awning{
+  		width:475px;
+  		margin-top:-1%;
+  	}
+}
+
+@media print, screen and (max-height: 900px) {
+	header{
+		font-size:30px;
+	}
+
+	#home_section{
+		height:450px;
+	}
+
+	#main_section{
+		height:450px;
+		padding-top:-5%;
+	}
+
+	#title{
+		font-size:28px;
+	}
+	#rating{
+		width:124.5px;
+		height:22.5px;
+	}
+	#img{
+		width:320px;
+		height:240px;
+	}
+	#lastpart{
+		height:40px;
+	}
+}
+
+@media print, screen and (max-height: 768px) {
+	header{
+		font-size:28px;
+		width: 400px;
+	}
+
+	ul{
+		padding-right: 0px;
+	}
+
+	li{
+		margin:0 10px 0 0;
+		font-size: 24px;
+	}
+	#home_section{
+		width:450px;
+		height:450px;
+		border-top:none;
+  	}
+	#main_section{
+		width:450px;
+		height:450px;
+		border-top:none;
+	}
+	#awning{
+		width:475px;
+		margin-top:-1%;
+	}
+	#title{
+		font-size:26px;
+		padding-top:2%;
+	}
+	#loc{
+		font-size:14px;
+	}
+	#yelp{
+		font-size:14px;
+	}
+}
+
+@media print, screen and (max-width: 480px) {
+
 }

@@ -25,6 +25,7 @@ businesses = {}
 businessNames = []
 i = 0
 locInput = ""
+#termInput = ""
 
 JINJA_ENVIRONMENT = jinja2.Environment(
     loader=jinja2.FileSystemLoader(os.path.dirname(__file__)),
@@ -37,16 +38,35 @@ class MainPage(webapp2.RequestHandler):
         index_path = os.path.join(current_dir, 'templates', 'projectfood.html')
         self.response.write(template.render(index_path, {}))
 
+class About(webapp2.RequestHandler):
+    def get(self):
+        current_dir = os.path.dirname(__file__)
+        index_path = os.path.join(current_dir, 'templates', 'about.html')
+        self.response.write(template.render(index_path, {}))
+
+class Contact(webapp2.RequestHandler):
+    def get(self):
+        current_dir = os.path.dirname(__file__)
+        index_path = os.path.join(current_dir, 'templates', 'contact.html')
+        self.response.write(template.render(index_path, {}))
+
 class Foodbox(webapp2.RequestHandler):
     def post(self):
         current_dir = os.path.dirname(__file__)
+        '''
+        term input
+        global termInput
+        termInput = self.request.get('termInput')
+        '''
         global locInput
-        locInput = self.request.get('content')
+        locInput = self.request.get('locInput')
         
         #dataTuple = foodbox(input)
             #search based on TERM input; type of place
         dataTuple = getData(locInput)
             #search based on LOCATION input; general location of restaurant
+        #dataTuple = query(termInput, locInput)
+            #search based on LOCATION and TERM inputs
 
         global businesses
         businesses = dataTuple[0]
@@ -88,6 +108,7 @@ class Foodbox(webapp2.RequestHandler):
 
 class Foodbox2(webapp2.RequestHandler):
     def get(self):
+        #dataTuple = query(termInput, locInput)
         dataTuple = getData()
         businesses = dataTuple[0]
         businessNames = dataTuple[1]
@@ -132,6 +153,7 @@ class Foodbox2(webapp2.RequestHandler):
 
 class Foodbox3(webapp2.RequestHandler):
     def get(self):
+        #dataTuple = query(termInput, locInput)
         dataTuple = getData()
         businesses = dataTuple[0]
         businessNames = dataTuple[1]
@@ -176,6 +198,7 @@ class Foodbox3(webapp2.RequestHandler):
 
 class ShowMore(webapp2.RequestHandler):
     def get(self):
+        #dataTuple = query(termInput, locInput)
         dataTuple = getData()
         businesses = dataTuple[0]
         businessNames = dataTuple[1]
@@ -184,6 +207,8 @@ class ShowMore(webapp2.RequestHandler):
         current_dir = os.path.dirname(__file__)
         showmemore()
 
+        #dataTuple = query(termInput, locInput)
+            #search based on TERM and LOCATION inputs
         dataTuple = getData(locInput)
             #search based on LOCATION input; general location of restaurant
 
@@ -228,6 +253,8 @@ class ShowMore(webapp2.RequestHandler):
 app = webapp2.WSGIApplication([
     ('/', MainPage),
     ('/home', MainPage),
+    ('/about', About),
+    ('/contact', Contact),
     ('/result', Foodbox),
     ('/next', Foodbox2),
     ('/prev', Foodbox3),

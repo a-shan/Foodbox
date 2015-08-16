@@ -1,12 +1,8 @@
 Foodbox
 ==============
 
-Foodbox is an application built to recommend local eateries to users based on inputted location
-and terms.
+Foodbox is an application built to recommend local eateries to users based on inputted location.
 
-Example inputs:
-* Restaurants near San Francisco, CA
-* Barbecue near Los Angeles, CA
-* Boba near Irvine, CA
+Simply input a location and find eateries nearby!
 
-This application is still in development, so check back for more features and updates!
+This application has been launched, but is open for more development. Feel free to check it out and let us know any comments or suggestions!
