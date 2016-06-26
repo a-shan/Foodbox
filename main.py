@@ -126,42 +126,43 @@ class Foodbox2(webapp2.RequestHandler):
         businessNames = dataTuple[1]
 
     def post(self):
-            current_dir = os.path.dirname(__file__)
+        current_dir = os.path.dirname(__file__)
 
-            global i
-            if (i<4 and i>=0):
-                i += 1
-            else:
-                i = 0
+        global i
+        if (i<4 and i>=0):
+            i += 1
+        else:
+            i = 0
 
-            business = businesses[businessNames[i]]
+        business = businesses[businessNames[i]]
 
-            loc = business['location']
-            city = loc['city']
-            address = loc['display_address'][0]
-            state = loc['state_code']
-            name = namer(business['id'])
-            restaurant = name[:name.find(city)-1]
-            rating = float(business['rating'])
-            starsImg = business['rating_img_url_large']
-            img = transform(business['image_url'])
-            genre = business['categories'][0][0]
-            url = business['url']
+        loc = business['location']
+        city = loc['city']
+        address = loc['display_address'][0]
+        state = loc['state_code']
+        location = 'Location: ' + address + ', ' + city + ', ' + state 
+        name = namer(business['id'])
+        restaurant = name[:name.find(city)-1]
+        rating = float(business['rating'])
+        starsImg = business['rating_img_url_large']
+        img = transform(business['image_url'])
+        genre = 'Genre: ' + business['categories'][0][0]
+        url = business['url']
 
-            template_values = {
-            'restaurant':restaurant,
-            'city':city,
-            'state':state,
-            'stars':starsImg,
-            'genre':genre,
-            'img':img,
-            'address':address,
-            'city':city,
-            'url':url
-            }
+        template_values = {
+        'restaurant':restaurant,
+        'city':city,
+        'state':state,
+        'stars':starsImg,
+        'genre':genre,
+        'img':img,
+        'location':location,
+        'yelp':'Yelp',
+        'url':url
+        }
 
-            template = JINJA_ENVIRONMENT.get_template('result.html')
-            self.response.write(template.render(template_values))
+        template = JINJA_ENVIRONMENT.get_template('result.html')
+        self.response.write(template.render(template_values))
 
 class Foodbox3(webapp2.RequestHandler):
     def get(self):
@@ -171,42 +172,43 @@ class Foodbox3(webapp2.RequestHandler):
         businessNames = dataTuple[1]
 
     def post(self):
-            current_dir = os.path.dirname(__file__)
+        current_dir = os.path.dirname(__file__)
 
-            global i
-            if (i<=4 and i>0):
-                i -= 1
-            else:
-                i = 4
+        global i
+        if (i<=4 and i>0):
+            i -= 1
+        else:
+            i = 4
 
-            business = businesses[businessNames[i]]
+        business = businesses[businessNames[i]]
 
-            loc = business['location']
-            city = loc['city']
-            address = loc['display_address'][0]
-            state = loc['state_code']
-            name = namer(business['id'])
-            restaurant = name[:name.find(city)-1]
-            rating = float(business['rating'])
-            starsImg = business['rating_img_url_large']
-            img = transform(business['image_url'])
-            genre = business['categories'][0][0]
-            url = business['url']
+        loc = business['location']
+        city = loc['city']
+        address = loc['display_address'][0]
+        state = loc['state_code']
+        location = 'Location: ' + address + ', ' + city + ', ' + state 
+        name = namer(business['id'])
+        restaurant = name[:name.find(city)-1]
+        rating = float(business['rating'])
+        starsImg = business['rating_img_url_large']
+        img = transform(business['image_url'])
+        genre = 'Genre: ' + business['categories'][0][0]
+        url = business['url']
 
-            template_values = {
-            'restaurant':restaurant,
-            'city':city,
-            'state':state,
-            'stars':starsImg,
-            'genre':genre,
-            'img':img,
-            'address':address,
-            'city':city,
-            'url':url
-            }
+        template_values = {
+        'restaurant':restaurant,
+        'city':city,
+        'state':state,
+        'stars':starsImg,
+        'genre':genre,
+        'img':img,
+        'location':location,
+        'yelp':'Yelp',
+        'url':url
+        }
 
-            template = JINJA_ENVIRONMENT.get_template('result.html')
-            self.response.write(template.render(template_values))
+        template = JINJA_ENVIRONMENT.get_template('result.html')
+        self.response.write(template.render(template_values))
 
 class ShowMore(webapp2.RequestHandler):
     def get(self):
@@ -239,12 +241,13 @@ class ShowMore(webapp2.RequestHandler):
         city = loc['city']
         address = loc['display_address'][0]
         state = loc['state_code']
+        location = 'Location: ' + address + ', ' + city + ', ' + state 
         name = namer(business['id'])
         restaurant = name[:name.find(city)-1]
         rating = float(business['rating'])
         starsImg = business['rating_img_url_large']
         img = transform(business['image_url'])
-        genre = business['categories'][0][0]
+        genre = 'Genre: ' + business['categories'][0][0]
         url = business['url']
 
         template_values = {
@@ -254,8 +257,8 @@ class ShowMore(webapp2.RequestHandler):
         'stars':starsImg,
         'genre':genre,
         'img':img,
-        'address':address,
-        'city':city,
+        'location':location,
+        'yelp':'Yelp',
         'url':url
         }
         
