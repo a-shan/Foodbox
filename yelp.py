@@ -73,9 +73,13 @@ def request(host, path, url_params=None):
     
     #print u'Querying {0} ...'.format(url)
 
-    conn = urllib2.urlopen(signed_url, None)
+    req = urllib2.Request(signed_url)
+    conn = urllib2.urlopen('http://www.yelp.com')
     try:
+        conn = urllib2.urlopen(signed_url, None)
         response = json.loads(conn.read())
+    except urllib2.HTTPError:
+            return 'Oops! Invalid input, please try again.'
     finally:
         conn.close()
 
@@ -198,14 +202,21 @@ def getData(location):
         data = search(DEFAULT_TERM, DEFAULT_LOCATION)
     else:
         data = search(DEFAULT_TERM, location)
-    businesses = data.get('businesses')
-    businessNames = []
-    for i in range(len(nums)):
-        businessNames.append(businesses[nums[i]]['id'])
-    businessData={}
-    for i in range(len(nums)):
-        businessData[businessNames[i]] = get_business(businessNames[i])
-    return (businessData, businessNames)
+
+    if ( isinstance(data, basestring) ):
+        return ('Oops!', 'Looks like there was something wrong with your input. Please try again.')
+
+    if not data:
+        return
+    else:
+        businesses = data.get('businesses')
+        businessNames = []
+        for i in range(len(nums)):
+            businessNames.append(businesses[nums[i]]['id'])
+        businessData={}
+        for i in range(len(nums)):
+            businessData[businessNames[i]] = get_business(businessNames[i])
+        return (businessData, businessNames)
 
 def query(term, location):
     nums = createIndex()

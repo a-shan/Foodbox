@@ -53,6 +53,7 @@ class Contact(webapp2.RequestHandler):
 class Foodbox(webapp2.RequestHandler):
     def post(self):
         current_dir = os.path.dirname(__file__)
+        template_values = {}
         '''
         term input
         global termInput
@@ -68,43 +69,54 @@ class Foodbox(webapp2.RequestHandler):
         #dataTuple = query(termInput, locInput)
             #search based on LOCATION and TERM inputs
 
-        global businesses
-        businesses = dataTuple[0]
-        global businessNames
-        businessNames = dataTuple[1]
-        business = businesses[businessNames[0]]
-        
-        #Old method of retrieving data from JSON
-        #business = data.get('businesses')
-        #num = random.randint(0,19)
+        if (dataTuple[0] == 'Oops!'):
+            template_values = {
+            'restaurant':dataTuple[0],
+            'error':dataTuple[1]
+            }
 
-        #BUSINESS DATA
-        loc = business['location']
-        city = loc['city']
-        address = loc['display_address'][0]
-        state = loc['state_code']
-        name = namer(business['id'])
-        restaurant = name[:name.find(city)-1]
-        rating = float(business['rating'])
-        starsImg = business['rating_img_url_large']
-        img = transform(business['image_url'])
-        genre = business['categories'][0][0]
-        url = business['url']
+            template = JINJA_ENVIRONMENT.get_template('error.html')
+            self.response.write(template.render(template_values))
 
-        template_values = {
-        'restaurant':restaurant,
-        'city':city,
-        'state':state,
-        'stars':starsImg,
-        'genre':genre,
-        'img':img,
-        'address':address,
-        'city':city,
-        'url':url
-        }
+        else:
+            global businesses
+            businesses = dataTuple[0]
+            global businessNames
+            businessNames = dataTuple[1]
+            business = businesses[businessNames[0]]
+            
+            #Old method of retrieving data from JSON
+            #business = data.get('businesses')
+            #num = random.randint(0,19)
+
+            #BUSINESS DATA
+            loc = business['location']
+            city = loc['city']
+            address = loc['display_address'][0]
+            state = loc['state_code']
+            location = 'Location: ' + address + ', ' + city + ', ' + state 
+            name = namer(business['id'])
+            restaurant = name[:name.find(city)-1]
+            rating = float(business['rating'])
+            starsImg = business['rating_img_url_large']
+            img = transform(business['image_url'])
+            genre = 'Genre: ' + business['categories'][0][0]
+            url = business['url']
+
+            template_values = {
+            'restaurant':restaurant,
+            'city':city,
+            'state':state,
+            'stars':starsImg,
+            'genre':genre,
+            'img':img,
+            'location':location,
+            'yelp':'Yelp',
+            'url':url
+            }
         
-        template = JINJA_ENVIRONMENT.get_template('result.html')
-        self.response.write(template.render(template_values))
+            template = JINJA_ENVIRONMENT.get_template('result.html')
+            self.response.write(template.render(template_values))
 
 class Foodbox2(webapp2.RequestHandler):
     def get(self):
@@ -258,5 +270,6 @@ app = webapp2.WSGIApplication([
     ('/result', Foodbox),
     ('/next', Foodbox2),
     ('/prev', Foodbox3),
-    ('/results', ShowMore)
+    ('/results', ShowMore),
+    ('/error', Foodbox)
 ], debug=True)
