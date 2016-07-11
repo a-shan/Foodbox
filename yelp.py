@@ -252,16 +252,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-'''
-data = search(DEFAULT_TERM, DEFAULT_LOCATION)
-businesses = data.get('businesses')
-
-num = 0
-
-name = namer(businesses[num]['id'])
-rating = businesses[num]['rating']
-img = transform(businesses[num]['image_url'])
-genre = businesses[num]['categories'][0][0]
-openorclosed = businesses[num]['is_closed']
-loc = businesses[num]['location']
-'''

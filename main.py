@@ -54,11 +54,7 @@ class Foodbox(webapp2.RequestHandler):
     def post(self):
         current_dir = os.path.dirname(__file__)
         template_values = {}
-        '''
-        term input
-        global termInput
-        termInput = self.request.get('termInput')
-        '''
+
         global locInput
         locInput = self.request.get('locInput')
         
@@ -129,7 +125,7 @@ class Foodbox2(webapp2.RequestHandler):
         current_dir = os.path.dirname(__file__)
 
         global i
-        if (i<4 and i>=0):
+        if (i<(len(businessNames)-1) and i>=0):
             i += 1
         else:
             i = 0
@@ -175,10 +171,10 @@ class Foodbox3(webapp2.RequestHandler):
         current_dir = os.path.dirname(__file__)
 
         global i
-        if (i<=4 and i>0):
+        if (i<=(len(businessNames)-1) and i>0):
             i -= 1
         else:
-            i = 4
+            i = len(businessNames)-1
 
         business = businesses[businessNames[i]]
 
