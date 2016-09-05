@@ -74,7 +74,6 @@ def request(host, path, url_params=None):
     #print u'Querying {0} ...'.format(url)
 
     req = urllib2.Request(signed_url)
-    conn = urllib2.urlopen('http://www.yelp.com')
     try:
         conn = urllib2.urlopen(signed_url, None)
         response = json.loads(conn.read())
